@@ -1,5 +1,5 @@
 ---
-title: 'Five Reasons to Teach Elementary Statistics With R:  #3'
+title: 'Five Reasons to Teach Elementary Statistics With R:  Part 3'
 author: "Homer White"
 date: "2014-05-05T01:00:00"
 tags: ["shiny", "teaching"]
