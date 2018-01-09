@@ -5,6 +5,7 @@ theme = "tuftesque"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+relativeurls = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
