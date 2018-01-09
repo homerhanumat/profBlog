@@ -1,0 +1,65 @@
+baseurl = "https://rainandrhino.netlify.com/"
+languageCode = "en-us"
+title = "Data and Computing"
+theme = "tuftesque"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+
+[[menu.nav]]
+  name = "Home"
+  pre = "<i class='fa fa-home fa-lg'></i> "
+  weight = -110 
+  identifier = "home"
+  url = "/"
+[[menu.nav]]
+  name = "About"
+  pre = "<i class='fa fa-user-plus fa-lg'></i> "
+  weight = -105 
+  identifier = "about"
+  url = "/about"
+[[menu.nav]]
+  name = "Posts"
+  pre = "<i class='fa fa-book fa-lg'></i> "
+  weight = -100 
+  identifier = "posts"
+  url = "/post"
+[[menu.nav]]
+  name = "Tags"
+  pre = "<i class='fa fa-tags fa-lg'></i> "
+  weight = -85 
+  identifier = "tags"
+  url = "/tags"
+[[menu.nav]]
+    name = "GitHub"
+    pre = "<i class='fa fa-github'></i>"
+    url = "https://github.com/homerhanumat"
+    identifier = "github"
+    weight = -70
+
+[params]
+    description = "A website built through Hugo and blogdown."
+    showTitle = true
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+    
+    [params.banner]
+    url = "banner.png"
+

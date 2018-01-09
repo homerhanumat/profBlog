@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flow Control on Data and Computing</title>
+    <link>/tags/flow-control/</link>
+    <description>Recent content in Flow Control on Data and Computing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Sep 2017 10:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/flow-control/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Guidance on the Madhava Graph Problem</title>
+      <link>/2017/09/27/guidance-on-the-madhava-graph-problem/</link>
+      <pubDate>Wed, 27 Sep 2017 10:30:00 +0000</pubDate>
+      
+      <guid>/2017/09/27/guidance-on-the-madhava-graph-problem/</guid>
+      <description>Introduction This post provides a bit of guidance for students in CSC 115 who are working on the Madhava Graph exercise in Chapter 4 of the course text.
+ As you will recall, the statement of the problem is as follows:
+ Recall the function madhavaPI() from Section 3.4.1. Use this function to write a function called madhavaGraph() that will do the following: given a number \(n\), the function uses ggplot2 to produce a line graph of the first \(n\) approximations to \(\pi\) using the initial terms of the Madhava series.</description>
+    </item>
+    
+  </channel>
+</rss>

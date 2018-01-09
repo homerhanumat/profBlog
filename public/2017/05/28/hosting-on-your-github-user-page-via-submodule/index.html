@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+<title>Data and Computing - Hosting on your Github User Page via Submodule</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A website built through Hugo and blogdown.">
+<meta name="keywords" content="">
+<meta name="author" content="Data and Computing">
+<meta name="generator" content="Hugo 0.32.3" />
+
+  
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="/css/tuftesque.css">
+<style>
+body {
+  
+    background-color: #fffff8;
+  
+}
+</style>
+
+<link rel="stylesheet" href="css/custom.css">
+
+
+
+<script>
+
+</script>
+
+
+</head>
+
+<body>
+<div id="layout" class="pure-g">
+<article class="pure-u-1">
+<header class="brand">
+  <h1>
+    <a href="/">
+      <span id = "blog_logo">
+         <img src="/logo.png" alt="Blog Logo" style="height: 40px; width:40px">
+      </span>
+      
+    </a>
+  </h1>
+</header>
+
+<section>
+  <h1 class="content-title">
+  
+  <a href="/2017/05/28/hosting-on-your-github-user-page-via-submodule/">Hosting on your Github User Page via Submodule</a>
+  
+  </h1>
+  
+  
+  
+  <span class="content-meta">
+    
+  
+  
+  
+  <i class="fa fa-user">&nbsp;</i><span class="author">
+    &nbsp;Homer White</span> <br>
+    
+  
+  
+  
+  <i class="fa fa-calendar"></i>
+    &nbsp;May 28, 2017
+  
+  
+  
+  &nbsp;<i class="fa fa-clock-o"></i>
+    &nbsp;2 min read
+  
+  
+  
+  <br>
+    <i class="fa fa-tags"> </i>
+    
+    <a  href="/tags/github">github</a>
+    
+    <a  href="/tags/hugo">hugo</a>
+    
+    <a  href="/tags/submodules">submodules</a>
+    
+    <a  href="/tags/meta-blogging">meta-blogging</a>
+    
+    
+    </span>
+    
+    
+    </section>
+
+
+<section><p>My primary technical blog is hosted by Github through my User repository (<code>homerhanumat.github.io</code>).  Recently I switched my generator from Jekyll to Hugo.</p>
+
+<p>From the User repository Github Pages requires that the site be served from the root of the repository (not from <code>docs</code>).  Jekyll allowed us to build the site into the root, but Hugo builds into a specific directory, named <code>public</code> by default.  Building into the root would look a bit messy, anyway.</p>
+
+<p>I decided to handle the problem by creating a separate repository for my source code, then making the <code>public</code> directory into a submodule of the source repo, with a remote pointed to my User repo.  The idea is taken from <a href="https://stackoverflow.com/questions/12514197/convert-a-git-folder-to-a-submodule-retrospectively">Stackoverflow</a>.</p>
+
+<p>First make sure you have initialized your project as a git repository.  Go ahead and set the remote to a repo on Github&mdash;or wherever you like, really.</p>
+
+<p>Build your site with Hugo.  You now have a <code>public</code> directory.  Then do the following in the terminal (replacing &ldquo;username&rdquo; with your own Github username):</p>
+
+<pre><code class="language-sh">cd public
+git init
+git remote add origin https://github.com/username/username.github.io.git
+git add .
+touch .nojekyll  # so Github will not attempt to serve the site with Jekyll
+git commit -am 'first commit in submodule'
+git push
+cd ..
+rm -rf public
+git commit -am 'deleting folder'
+git submodule add https://github.com/username/username.github.io.git public
+git commit -am 'adding submodule'
+</code></pre>
+
+<p>Now when you commit and push from the root of your project, the changes go to the remote for your source.  When you want to push changes up to the website itself, <code>cd</code> into <code>public</code>, commit changes and push to the <code>username.gihub.io</code> remote.</p>
+
+<p>When Hugo serves your site it modifies files in <code>public</code> but leaves alone files that no longer correspond to anything in your source.  Sometimes you need to remove these files, so it&rsquo;s recommended to make a clean start:</p>
+
+<pre><code class="language-sh">rm -rf public
+</code></pre>
+
+<p>But you should NOT do this!  You&rsquo;ll lose <code>.git</code> and your submodule along with it.</p>
+
+<p>When you need to remove junk files, it&rsquo;s easiest to remove all files except <code>.nojekyll</code> and the <code>git</code> directory.  This can be accomplished from the terminal as follows:</p>
+
+<pre><code class="language-sh">shopt -s extglob
+cd public
+rm -rf !(.nojekyll|.git)
+cd ..   # back to the root of the project
+</code></pre>
+
+<p>Now you can serve the site and <code>public</code> will be replenished.</p>
+
+<p>My remote source repo is at:</p>
+
+<blockquote>
+<p><a href="https://github.com/homerhanumat/hugoBlog.git">https://github.com/homerhanumat/hugoBlog.git</a></p>
+</blockquote>
+
+<p>You can see that the <code>public</code> directory appears as a submodule.  Click on it and you&rsquo;ll come to the User repo:</p>
+
+<blockquote>
+<p><a href="https://github.com/homerhanumat/homerhanumat.github.io.git">https://github.com/homerhanumat/homerhanumat.github.io.git</a></p>
+</blockquote>
+
+<p>The blog itself is hosted from this latter repo.</p>
+</section>
+<section>
+  
+
+  
+
+
+
+  
+
+
+      
+  <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy;2018
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+</section>
+</article>
+</div>
+</body>
+</html>
