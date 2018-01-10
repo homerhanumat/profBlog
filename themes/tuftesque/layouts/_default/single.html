@@ -12,8 +12,8 @@
   {{ if .Params.ghcommentid }}
     <div id="gh-comments-list"></div>
     <script>
-      var url = "https://github.com/homerhanumat/profBlog/issues/" + {{ $.Params.ghcommentid }};
-      var api_url = "https://api.github.com/repos/homerhanumat/profBlog/issues/" + {{ $.Params.ghcommentid }} + "/comments";
+      var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" + {{ $.Params.ghcommentid }};
+      var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" + {{ $.Params.ghcommentid }} + "/comments";
     </script>
     <script src="/js/ghcomments.js"></script>
   {{ end }}
