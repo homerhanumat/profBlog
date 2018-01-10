@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log("hello");
     $.ajax(api_url, {
         headers: {Accept: "application/vnd.github.v3.html+json"},
         dataType: "json",
