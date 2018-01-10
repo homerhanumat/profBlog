@@ -10,6 +10,7 @@ tags:
   - "hugo"
   - "submodules"
   - "meta-blogging"
+excerpt:  "This is possibly useful if you are deploying your site from a Github User page but the source files are in another repository."
 ---
 
 My primary technical blog is hosted by Github through my User repository (`homerhanumat.github.io`).  Recently I switched my generator from Jekyll to Hugo.

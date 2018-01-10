@@ -5,8 +5,8 @@ tags = ["blogdown", "hugo", "meta-blogging"]
 aggregators = [""]
 title = "Demo Sites for Blogdown-ified Hugo Themes"
 math = false
-summary = """
-I tweaked a couple of simple Hugo themes for use by R-bloggers along with the **blogdown** package.  If you prefer minimal themes you might wish to start with one of these.
+excerpt = """
+I tweaked a couple of simple Hugo themes for use by R-bloggers along with the blogdown package.  If you prefer minimal themes you might wish to start with one of these.
 """
 ghcommentid = 4
 +++
