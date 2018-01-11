@@ -1,4 +1,4 @@
-<header class="brand">
+<header class="brand {{if not .IsHome}}non-home-brand{{ end }}" >
   <h1>
     <a href="{{.Site.BaseURL | relURL}}">
       <span id = "blog_logo">

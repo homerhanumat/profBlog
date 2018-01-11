@@ -142,17 +142,30 @@ label.margin-toggle {
   border-radius: 5px;
 }
 
-.brand{
+.brand {
   margin-bottom:-10px;
+  text-align: center;
+}
+
+.brand.non-home-brand {
+  text-align: left;
 }
 
 .brand a {
   background-repeat: no-repeat !important;
+  text-decoration: none;
 }
+
+#blog_logo {
+  clear: right;
+}
+
+
 
 #blog_title {
   line-height: 50px;
-  float: right;
+  display: inline-block;
+  /* float: right;  removed */
   padding-right: 5px;
   right: 0;
 }
