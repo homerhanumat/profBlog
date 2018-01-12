@@ -1,4 +1,4 @@
-baseurl = "http://profBlog.netlify.com"
+baseurl = "https://profBlog.netlify.com"
 languageCode = "en-us"
 title = "Data and Computing"
 theme = "tuftesque"
