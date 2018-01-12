@@ -36,8 +36,8 @@ relativeurls = true
   identifier = "tags"
   url = "/tags"
 [[menu.nav]]
-    name = "GitHub"
-    pre = "<i class='fa fa-github'></i>"
+    name = " GitHub"
+    pre = "<i class='fa fa-github fa-lg'></i>"
     url = "https://github.com/homerhanumat"
     identifier = "github"
     weight = -70
