@@ -19,7 +19,9 @@
 </header>
 
 <script>
-  $( document ).ready(() => {
+  window.addEventListener("load",
+                            function loadFunction() {
+    console.log("trying to run this shit.");
     //javascript for intro loader
     //Function to immitate R's seq
     function seq(start, end, increment) {
@@ -34,8 +36,8 @@
       return y;
     }
     
-    var width   = $("#custom-header").width() ,
-        height  = $("#custom-header").outerHeight(),
+    var width   = document.querySelector("#custom-header").clientWidth ,
+        height  = document.querySelector("#custom-header").offsetHeight,
         padding = 0,
         numOfLines = 20,
         xs = seq(0.01, 0.99, .01),
@@ -44,26 +46,33 @@
         'rgb(224,243,248)', 'rgb(171,217,233)', 'rgb(116,173,209)', 
         'rgb(69,117,180)', 'rgb(49,54,149)'];
   
-    //console.log("trying to run this shit.")
+    console.log(document.querySelector("#custom-header"));
+    
+    // define tooltip
+    var tooltip = d3.select("body").append("div")   
+      .attr("class", "tooltip")               
+      .style("opacity", 0);
+    
     //define the svg.
     var svg = d3.select("#header_viz").append("svg")
         .attr("width", width)
         .attr("height", height + 2 * padding)
-        .append("g")
+        .append("g");
     var animatelines = function(whichline) {
         d3.selectAll(".line").style("opacity","0.5");
         //Select All of the lines and process them one by one
-        d3.selectAll(".line").each(function(d,i){
+        d3.selectAll(".line").each(function(d,i) {
             // Get the length of each line in turn
             var totalLength = d3.select("#line" + i).node().getTotalLength();
-            d3.selectAll("#line" + i).attr("stroke-dasharray", totalLength + " " + totalLength)
+            d3.selectAll("#line" + i).attr("stroke-dasharray",
+                                           totalLength + " " + totalLength)
               .attr("stroke-dashoffset", totalLength)
               .transition()
               .duration(5000)
               .delay(100*i)
               .attr("stroke-dashoffset", 0)
-              .style("stroke-width",2)
-        })
+              .style("stroke-width",2);
+        });
     }
     
     // The Scales:
@@ -107,6 +116,19 @@
         .on("mouseout", function(d,i){
             d3.select(this).style("stroke", colors[i % 10])
         })
+        .on("mouseover", function(d, i) {      
+                 tooltip.transition()        
+                  .duration(200)      
+                  .style("opacity", .9);      
+                tooltip.html("alpha: " + i + "<br/>"  + "beta: " + (numOfLines - i))  
+                  .style("left", (d3.event.pageX) + "px")     
+                  .style("top", (d3.event.pageY - 28) + "px");    
+               })                  
+        .on("mouseout", function(d, i) {       
+                  tooltip.transition()        
+                  .duration(500)      
+                  .style("opacity", 0); 
+               });
     // var introMessage = isMobile ? "tap" : "click"
     // var introMessage = "click"
     //
@@ -118,7 +140,7 @@
     //     .attr("x", x(2.5))
     //     .attr("y", y(2.01))
     //kick it off on a click. (or tap)
-    animatelines(2)
+    animatelines(2);
     // d3.select("svg").on("click", function() { animatelines(2) })
-})
+});
 </script>
