@@ -110,25 +110,24 @@
         .style("stroke", function(d, i) { return colors[i % 10] })
         .style("opacity", 0)
         .style("fill", "none")
-        .on("mouseover", function(d){
-            d3.select(this).style("stroke", "black")
+        .on("mouseover", function(d, i){
+            d3.select(this)
+              .style("stroke", "black")
+              .style("stroke-width",4);
+            tooltip.transition()        
+                  .duration(200)      
+                  .style("opacity", .9);      
+            tooltip.html("alpha: " + i + "<br/>"  + "beta: " + (numOfLines - i))  
+                  .style("left", (d3.event.pageX) + "px")     
+                  .style("top", (d3.event.pageY - 28) + "px"); 
         })
         .on("mouseout", function(d,i){
             d3.select(this).style("stroke", colors[i % 10])
-        })
-        .on("mouseover", function(d, i) {      
-                 tooltip.transition()        
-                  .duration(200)      
-                  .style("opacity", .9);      
-                tooltip.html("alpha: " + i + "<br/>"  + "beta: " + (numOfLines - i))  
-                  .style("left", (d3.event.pageX) + "px")     
-                  .style("top", (d3.event.pageY - 28) + "px");    
-               })                  
-        .on("mouseout", function(d, i) {       
-                  tooltip.transition()        
+              .style("stroke-width", 2);
+            tooltip.transition()        
                   .duration(500)      
                   .style("opacity", 0); 
-               });
+        });
     // var introMessage = isMobile ? "tap" : "click"
     // var introMessage = "click"
     //
