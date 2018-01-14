@@ -112,6 +112,8 @@
         .style("fill", "none")
         .on("mouseover", function(d, i){
             d3.select(this)
+              .transition()
+              .duration(200)
               .style("stroke", "black")
               .style("stroke-width",4);
             tooltip.transition()        
@@ -123,6 +125,8 @@
         })
         .on("mouseout", function(d,i){
             d3.select(this).style("stroke", colors[i % 10])
+              .transition()
+              .duration(500)
               .style("stroke-width", 2);
             tooltip.transition()        
                   .duration(500)      
