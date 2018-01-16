@@ -44,6 +44,7 @@ relativeurls = true
 
 [params]
     description = "A website built through Hugo and blogdown."
+    copyrightHolder = "Homer White"
     showTitle = true
 
     # options for highlight.js (version, additional languages, and theme)
@@ -54,13 +55,15 @@ relativeurls = true
 
     MathJaxCDN = "//cdn.bootcss.com"
     MathJaxVersion = "2.7.1"
-
+    
+    # not used currently; width and height baked into svg logo
     [params.logo]
     url = "logo.png"
     width = 50
     height = 50
     alt = "Logo"
     
+    # using banner partial instead
     [params.banner]
     url = "banner.png"
 
