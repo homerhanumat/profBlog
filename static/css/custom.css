@@ -69,7 +69,7 @@ nav.menu li a:focus {
 .grow { transition: all .3s ease-in-out}
 .grow:hover { 
   transform: scale(1.25);
-  transform-origin: 50% 60%;
+  transform-origin: 52% 65%;
 }
 
 /*****************************
