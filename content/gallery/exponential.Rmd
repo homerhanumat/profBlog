@@ -1,0 +1,26 @@
+---
+title: "Nick Strayer's Power Series App"
+excerpt: "Study Nick's D3 programming!"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(tidy=FALSE,out.width="90%", fig.align='center')
+library(ggplot2)
+```
+
+## The App
+
+Let's see if it works.
+
+<style>
+svg text {
+  font-family: garamond;
+}
+</style>
+
+<div class = "fullwidth" id = "viz"></div>
+<script src="https://cdn.rawgit.com/gka/d3-jetpack/master/build/d3v4%2Bjetpack.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://rawgit.com/nstrayer/slid3r/master/dist/slid3r.js"></script>
+<script src="/js/expobundle.js"></script>
+
