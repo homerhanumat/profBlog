@@ -1,0 +1,40 @@
+<!-- This is the view for each individual d3 lab -->
+{{ partial "header.html" . }}
+<body>
+<div id="layout" class="pure-g">
+<article class="pure-u-1">
+{{ partial "brand.html" . }}
+
+
+<section>
+  <h1 class="content-title">
+  {{ if .IsNode }}
+  <a href="{{ .Permalink | relURL }}">{{ .Title}}</a>
+  {{ else }}
+  <a href="{{ .RelPermalink | relURL}}">{{ .Title }}{{ if .Draft }} :: Draft {{end}}</a>
+  {{ end }}
+  </h1>
+  {{ if .IsPage }}
+  {{ if .Params.subtitle }}<p class=subtitle>{{ .Params.subtitle }}</p>{{ end }}
+  {{ end }}
+</section>
+
+
+{{ partial "toc.html" . }}
+<section>{{ .Content }}</section>
+<section>
+  {{ partial "author.html" . }}
+  {{ if .Params.ghcommentid }}
+    <div id="gh-comments-list"></div>
+    <script>
+      var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" + {{ $.Params.ghcommentid }};
+      var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" + {{ $.Params.ghcommentid }} + "/comments";
+    </script>
+    <script src="/js/ghcomments.js"></script>
+  {{ end }}
+  {{ partial "footer.html" . }}
+</section>
+</article>
+</div>
+</body>
+</html>

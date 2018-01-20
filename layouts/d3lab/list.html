@@ -1,0 +1,31 @@
+{{ partial "header.html" . }}
+
+<!--  This is the view that you get when you click "see all posts" -->
+<body>
+<div id="layout" class="pure-g">
+<article class="pure-u-1">
+{{ partial "brand.html" . }}
+  
+  <section>
+  <h1 class="content-title">
+  <a href="{{ .Permalink | relURL }}">D3 Labs</a>
+  </h1>
+  
+  <p>Teaching myself D3 by example.</p>
+</section>
+  
+  
+  <section class="list-page">
+  {{ range .Data.Pages }}
+        <ul>
+          <li>
+            <a href="{{ .RelPermalink  | relURL}}">{{ .Title }}</a>
+          </li>
+        </ul>
+  {{ end }}
+  </section>
+{{ partial "footer.html" . }}
+</article>
+</div>
+</body>
+</html>
