@@ -16,10 +16,11 @@
   
   
   <section class="list-page">
-  {{ range .Data.Pages }}
+  {{ range .Data.Pages.ByWeight }}
         <ul>
           <li>
             <a href="{{ .RelPermalink  | relURL}}">{{ .Title }}</a>
+            <p>{{ .Params.Excerpt }}</p>
           </li>
         </ul>
   {{ end }}
