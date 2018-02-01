@@ -5,7 +5,7 @@ date: 2018-01-31T10:30:00
 tags: ["htmlwidgets", "javascript"]
 aggregators: ["r-bloggers"]
 excerpt: "The package bpexploder provides an HTML Widget that makes boxplots that explode upon mouse-click into individual-value plots.  The plots allow for a modest amount of customization, including tool-tips."
-ghcommentid: 4
+ghcommentid: 3
 ---
 
 ```{r include=FALSE}
