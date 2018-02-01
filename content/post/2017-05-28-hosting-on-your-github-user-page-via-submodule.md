@@ -4,7 +4,6 @@ author: "Homer White"
 date: '2017-05-28'
 slug: hosting-on-your-github-user-page-via-submodule
 categories: []
-ghcommentid: 3
 tags:
   - "github"
   - "hugo"
