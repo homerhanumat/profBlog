@@ -12,11 +12,11 @@
 {{ partial "brand.html" . }}
 {{ partial "banner.html" . }}
 {{ partial "nav.html" . }}
-{{ range first 5 .Site.Pages }}
-  {{if eq .Type "post" }}
-    {{if eq .Title "Posts"}}
+{{ range first 10 .Site.Pages }}
+  {{ if eq .Type "post" }}
+    {{ if eq .Title "Posts" }}
       <h2><a href="{{ .RelPermalink | relURL }}">See all posts</a></h2>
-    {{else}}
+    {{ else }}
       {{ partial "content.header.html" . }}
       <p>{{ .Params.excerpt }}</p>
       <p><a href="{{ .RelPermalink | relURL }}">Read On &rarr;</a></p>

@@ -1,0 +1,59 @@
+---
+title: "Exploding Boxplot"
+excerpt: "I'm building a simple HTMLWidget to make exploding boxplots with R."
+weight: 3
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/d3-tip/d3-tip.js"></script>
+<link href="/rmarkdown-libs/bpexplode/bpexplode.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/bpexplode/bpexplode.js"></script>
+<script src="/rmarkdown-libs/bpexploder-binding/bpexploder.js"></script>
+
+
+<p id="reference-paragraph">
+</p>
+<div id="a-simple-widget" class="section level2">
+<h2>A Simple Widget</h2>
+<p><code>bpexploder</code> represents my first foray into HTMLWidgets for R. It makes boxplots that explode upon mouse-click into jittered individual-value plots. You can configure tool-tips for the individual points.</p>
+</div>
+<div id="installation-and-usage" class="section level2">
+<h2>Installation and Usage</h2>
+<p>Install the package from GitHub:</p>
+<pre class="r"><code>devtools::install_github(&quot;homerhanumat/bpexploder&quot;)</code></pre>
+<p>Set-up:</p>
+<pre class="r"><code>library(bpexploder)
+set.seed(5437)  # one way to avoid .Random.Seed warning from widgetId creation</code></pre>
+</div>
+<div id="settings" class="section level2">
+<h2>Settings</h2>
+<p><code>bpexploder</code> provides modest options for customization, as illustrated in the following example:</p>
+<pre class="r"><code>bpexploder(data = chickwts,
+          settings = list(
+            yVar = &quot;weight&quot;,
+            # default NULL makes one plot for yVar
+            groupVar = &quot;feed&quot;,
+            levels = levels(with(chickwts,
+                                 reorder(feed, weight, median))),
+            # you could adjust the group lables ...
+            levelLabels = NULL,
+            # ... and the colors for each group:
+            levelColors = NULL,
+            yAxisLabel = &quot;6-week weight (grams)&quot;,
+            xAxisLabel = &quot;type of feed&quot;,
+            tipText = list(
+              # as many os you like of:
+              # variableName = &quot;desired tool-tip label&quot;
+              # leave tipText at NULL for no tips
+              weight = &quot;weight&quot;),
+            referenceId = &quot;reference-paragraph&quot;
+            )
+          )</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="bpexploder html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":{"weight":[179,160,136,227,217,168,108,124,143,140,309,229,181,141,260,203,148,169,213,257,244,271,243,230,248,327,329,250,193,271,316,267,199,171,158,248,423,340,392,339,341,226,320,295,334,322,297,318,325,257,303,315,380,153,263,242,206,344,258,368,390,379,260,404,318,352,359,216,222,283,332],"feed":["horsebean","horsebean","horsebean","horsebean","horsebean","horsebean","horsebean","horsebean","horsebean","horsebean","linseed","linseed","linseed","linseed","linseed","linseed","linseed","linseed","linseed","linseed","linseed","linseed","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","soybean","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","sunflower","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","meatmeal","casein","casein","casein","casein","casein","casein","casein","casein","casein","casein","casein","casein"]},"settings":{"yVar":"weight","groupVar":"feed","levels":["horsebean","linseed","soybean","meatmeal","sunflower","casein"],"levelLabels":null,"levelColors":null,"yAxisLabel":"6-week weight (grams)","xAxisLabel":"type of feed","tipText":{"weight":"weight"},"referenceId":"reference-paragraph","align":"center","aspect":1.25}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="credits" class="section level2">
+<h2>Credits</h2>
+<p>The Javascript library is based on Mathieu Caule’s <a href="https://mcaule.github.io/d3_exploding_boxplot/">D3 Exploding Boxplots</a>, which I have modified slightly and updated for D3 Version 4. The tool-tips were originally developed by <a href="https://github.com/Caged">Justin Palmer</a> and were updated by <a href="https://github.com/VACLab/d3-tip">Dave Gotz</a>. I modified the tip-function a bit.</p>
+</div>

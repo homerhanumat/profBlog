@@ -1,0 +1,63 @@
+---
+title: "Exploding Boxplot"
+excerpt: "I'm building a simple HTMLWidget to make exploding boxplots with R."
+weight: 3
+---
+
+```{r setup, include=FALSE, cache = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = TRUE)
+library(bpexploder)
+```
+
+<p id="reference-paragraph"></p>
+
+## A Simple Widget
+
+`bpexploder` represents my first foray into HTMLWidgets for R.  It makes boxplots that explode upon mouse-click into jittered individual-value plots.  You can configure tool-tips for the individual points.
+
+## Installation and Usage
+
+Install the package from GitHub:
+
+```{r eval = FALSE}
+devtools::install_github("homerhanumat/bpexploder")
+```
+
+Set-up:
+
+```{r eval = FALSE}
+library(bpexploder)
+set.seed(5437)  # one way to avoid .Random.Seed warning from widgetId creation
+```
+
+##  Settings
+
+`bpexploder` provides modest options for customization, as illustrated in the following example:
+
+```{r}
+bpexploder(data = chickwts,
+          settings = list(
+            yVar = "weight",
+            # default NULL makes one plot for yVar
+            groupVar = "feed",
+            levels = levels(with(chickwts,
+                                 reorder(feed, weight, median))),
+            # you could adjust the group lables ...
+            levelLabels = NULL,
+            # ... and the colors for each group:
+            levelColors = NULL,
+            yAxisLabel = "6-week weight (grams)",
+            xAxisLabel = "type of feed",
+            tipText = list(
+              # as many os you like of:
+              # variableName = "desired tool-tip label"
+              # leave tipText at NULL for no tips
+              weight = "weight"),
+            referenceId = "reference-paragraph"
+            )
+          )
+```
+
+## Credits
+
+The Javascript library is based on Mathieu Caule's [D3 Exploding Boxplots](https://mcaule.github.io/d3_exploding_boxplot/), which I have modified slightly and updated for D3 Version 4. The tool-tips were originally developed by [Justin Palmer](https://github.com/Caged) and were updated by [Dave Gotz](https://github.com/VACLab/d3-tip).  I modified the tip-function a bit.

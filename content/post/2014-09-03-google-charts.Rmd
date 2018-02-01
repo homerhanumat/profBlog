@@ -3,7 +3,7 @@ title: "Google Charts in R Markdown"
 author: "Homer White"
 date: 2014-09-03T20:30:00
 tags: ["googlevis", "extrapolation"]
-aggregators: ["R-bloggers"]
+aggregators: ["r-bloggers"]
 ---
 
 ```{r include=FALSE}

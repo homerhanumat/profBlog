@@ -13,11 +13,11 @@ tags:
 excerpt:  "This is possibly useful if you are deploying your site from a Github User page but the source files are in another repository."
 ---
 
-My primary technical blog is hosted by Github through my User repository (`homerhanumat.github.io`).  Recently I switched my generator from Jekyll to Hugo.
+My primary technical blog was once hosted by Github through my User repository (`homerhanumat.github.io`).
 
-From the User repository Github Pages requires that the site be served from the root of the repository (not from `docs`).  Jekyll allowed us to build the site into the root, but Hugo builds into a specific directory, named `public` by default.  Building into the root would look a bit messy, anyway.
+From the User repository Github Pages requires that the site be served from the root of the repository (not from `docs`) but building into the same directory that houses one's source files seems a bit messy.
 
-I decided to handle the problem by creating a separate repository for my source code, then making the `public` directory into a submodule of the source repo, with a remote pointed to my User repo.  The idea is taken from [Stackoverflow](https://stackoverflow.com/questions/12514197/convert-a-git-folder-to-a-submodule-retrospectively).
+I decided to handle the problem by creating a separate repository for my source code, then making the `public` directory---the defualt name for the build-directory of Hugo, my static-site gnerator of choice---into a submodule of the source repo, having as remote my User repo.  The idea is taken from [Stackoverflow](https://stackoverflow.com/questions/12514197/convert-a-git-folder-to-a-submodule-retrospectively).
 
 First make sure you have initialized your project as a git repository.  Go ahead and set the remote to a repo on Github---or wherever you like, really.
 
@@ -58,13 +58,3 @@ cd ..   # back to the root of the project
 ```
 
 Now you can serve the site and `public` will be replenished.
-
-My remote source repo is at:
-
->[https://github.com/homerhanumat/hugoBlog.git](https://github.com/homerhanumat/hugoBlog.git)
-
-You can see that the `public` directory appears as a submodule.  Click on it and you'll come to the User repo:
-
->[https://github.com/homerhanumat/homerhanumat.github.io.git](https://github.com/homerhanumat/homerhanumat.github.io.git)
-
-The blog itself is hosted from this latter repo.
