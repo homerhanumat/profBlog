@@ -51,6 +51,12 @@ relativeurls = true
     url = "/resources"
     identifier = "links"
     weight = -65
+[[menu.nav]]
+    name = " R-Bloggers"
+    pre = "<i class='fa fa-table fa-lg'></i>"
+    url = "https://www.r-bloggers.com/"
+    identifier = "r-bloggers"
+    weight = -60
 
 [params]
     description = "A website built through Hugo and blogdown."
