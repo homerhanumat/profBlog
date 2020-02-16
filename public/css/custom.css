@@ -1,0 +1,90 @@
+nav.menu ul {
+    list-style: none;
+    display: block;
+    /*text-align:center;*/
+    margin-top: 0.75rem;
+    padding: 0;
+    max-width: 45rem;
+    /* Width is the same as tufte.css body */
+    font-size: .9rem;
+    width: 87.5%;
+}
+
+nav.menu li {
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+nav.menu li a {
+    text-decoration: none;
+    background: transparent;
+    color: rgba(65, 70, 75, 1);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+nav.menu li a:hover,
+nav.menu li a:active,
+nav.menu li a:focus {
+    background: inherit;
+    color: darkgray;
+}
+
+/*************************
+*  Github Comments
+**************************/
+
+#gh-comments-list {
+  width: 55%;
+}
+
+.gh-comment {
+  margin-bottom: 0;
+  border: solid black 3px;
+  background-color: #FFFFF8;
+  padding: 10px;
+}
+
+#comments-invite {
+  margin-bottom: 20px;
+}
+
+.gh-comment img {
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+.gh-comment-hr {
+  margin: 5px -10px 5px -10px;
+  height: 3px;
+  background-color: slategray;
+  
+}
+
+/**********************
+* grow on hover (logo)
+***********************/
+
+.grow { transition: all .3s ease-in-out}
+.grow:hover { 
+  transform: scale(1.25);
+  transform-origin: 52% 65%;
+}
+
+/*****************************
+* banner tooltip
+******************************/
+
+.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding-top: 2px;            
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 0;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
