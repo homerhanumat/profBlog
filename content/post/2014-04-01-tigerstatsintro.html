@@ -79,21 +79,21 @@ nullDist &lt;- do(2500)*(
       data=Pseudoscorpions))</code></pre>
 <p>Finally, we call <code>statTally()</code> for numerical and graphical analysis of the results:</p>
 <pre class="r"><code>statTally(obsDiff,nullDist)</code></pre>
-<pre><code>## Null distribution appears to be asymmetric. (p = 0.000258)</code></pre>
+<pre><code>## Null distribution appears to be asymmetric. (p = 4.93e-05)</code></pre>
 <pre><code>## 
 ## Test statistic applied to sample data =  -1.425</code></pre>
 <pre><code>## 
 ## Quantiles of test statistic applied to random data:</code></pre>
-<pre><code>##    50%    90%    95%    99% 
-## 0.0375 0.8250 0.9375 1.3875</code></pre>
+<pre><code>##      50%      90%      95%      99% 
+## 0.037500 0.825000 0.943125 1.387500</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## 
 ## Of the 2501 samples (1 original + 2500 random),</code></pre>
 <pre><code>## 
 ##  12 ( 0.48 % ) had test stats = -1.425</code></pre>
 <pre><code>## 
-##  40 ( 1.6 % ) had test stats &lt;= -1.425</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_bar).</code></pre>
+##  31 ( 1.24 % ) had test stats &lt;= -1.425</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="/post/2014-04-01-tigerstatsintro_files/figure-html/reason1hist-1.png" width="432" /></p>
 <p>We seem to have fairly strong evidence (<span class="math inline">\(P \approx 1.7\%\)</span>) that mating with more males increases the number of successful broods.</p>
 </div>

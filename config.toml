@@ -7,6 +7,9 @@ disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 relativeurls = true
 
+#[markup.goldmark.renderer]
+#    unsafe= true
+
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 

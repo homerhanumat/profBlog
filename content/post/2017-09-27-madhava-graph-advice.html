@@ -61,8 +61,8 @@ terms</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>You’ll also have the sums, another vector of length 10:</p>
 <pre class="r"><code>results</code></pre>
-<pre><code>##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738
-##  [8] 3.017072 3.252366 3.041840</code></pre>
+<pre><code>##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738 3.017072
+##  [9] 3.252366 3.041840</code></pre>
 <p>From our study of the Collatz function, we know that the way to make a line graph of these points is:</p>
 <pre class="r"><code>plotTitle &lt;- paste0(&quot;The first &quot;, n, &quot; Madhava sums&quot;)
   p &lt;- ggplot(mapping = aes(x = terms, y = results)) +
